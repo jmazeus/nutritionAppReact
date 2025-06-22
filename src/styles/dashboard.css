@@ -1,0 +1,52 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+  margin-top: 2rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.section h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.dashboard-container h1 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 2rem;
+}
+
+/* Estilos específicos para la tabla */
+.table-container {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Asegurar que el contenido no se superponga con la barra de navegación */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 60px; /* Altura de la barra de navegación */
+}
