@@ -1,90 +1,86 @@
-.table-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+.data-table {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.06);
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 1400px;           /* ¡Aumenta el ancho máximo! */
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  border: 1px solid #ececec;
+  min-height: 400px;
 }
 
-.table-title {
-  color: rgb(16, 137, 211);
-  margin: 0 0 1.5rem 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.table-header {
-  padding: 1.25rem;
-  text-align: left;
-  background-color: #e9f0f7;
-  color: rgb(16, 137, 211);
-  font-weight: 600;
-  border-bottom: 1px solid #e9f0f7;
-}
-
-.table-row {
-  transition: background-color 0.2s ease;
-}
-
-.table-row:hover {
-  background-color: #f9f9f9;
-}
-
-.table-cell {
-  padding: 1.25rem;
-  text-align: left;
-  border-bottom: 1px solid #e9f0f7;
-}
-
-.table-cell:last-child {
-  text-align: right;
-}
-
-.custom-table {
+.data-table table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 1.07rem;
+  color: #22223b;
+  background: transparent;
+  table-layout: auto;
 }
 
-.custom-table th,
-.custom-table td {
-  padding: 1rem;
+.data-table th,
+.data-table td {
+  padding: 1.1rem 1.1rem;
   text-align: left;
-  border-bottom: 1px solid #e9f0f7;
 }
 
-.custom-table th {
-  background-color: #e9f0f7;
-  color: rgb(16, 137, 211);
+.data-table th {
   font-weight: 600;
+  color: #22223b;
+  border-bottom: 2px solid #ececec;
+  background: none;
+  font-size: 1.03em;
 }
 
-.custom-table tr:hover {
-  background-color: #f9f9f9;
+.data-table tr {
+  border-bottom: 1px solid #ececec;
+  transition: background 0.2s;
 }
 
-.custom-table td:last-child {
-  text-align: right;
+.data-table tr:last-child {
+  border-bottom: none;
 }
 
-.custom-table .status {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9em;
-  border: 2px solid transparent;
+.data-table tr:hover {
+  background: #f4f7fb;
 }
 
-.custom-table .status.pending {
-  background-color: #fff3cd;
-  color: #856404;
+.data-table td {
+  font-weight: 400;
 }
 
-.custom-table .status.confirmed {
-  background-color: #d4edda;
-  color: #155724;
+.data-table td:first-child {
+  font-weight: 500;
+  color: #22223b;
 }
 
-.custom-table .status.completed {
-  background-color: #d4edda;
-  color: #155724;
+/* Para acciones tipo "Editar", "Eliminar", etc. */
+.table-action {
+  color: #6366f1;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.table-action:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .data-table {
+    max-width: 98vw;
+    padding: 1rem 0.5rem;
+  }
+  .data-table table th,
+  .data-table table td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.98rem;
+  }
 }

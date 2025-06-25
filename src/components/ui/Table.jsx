@@ -1,27 +1,20 @@
-import React from 'react';
-import { formatDate } from '../../utils/dateUtils';
-
-const Table = ({ columns, data, title }) => {
+export default function Table({ columns, data, title }) {
   return (
-    <div className="table-container">
-      <h2 className="table-title">{title}</h2>
-      <table className="custom-table">
+    <div className="data-table">
+      {title && <h2 className="table-title">{title}</h2>}
+      <table>
         <thead>
           <tr>
-            {columns.map((column) => (
-              <th key={column.key} className="table-header">
-                {column.label}
-              </th>
+            {columns.map(col => (
+              <th key={col.key}>{col.label}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            <tr key={index} className="table-row">
-              {columns.map((column) => (
-                <td key={column.key} className="table-cell">
-                  {column.key === 'createdAt' ? formatDate(row[column.key]) : row[column.key]}
-                </td>
+          {data.map((row, idx) => (
+            <tr key={idx}>
+              {columns.map(col => (
+                <td key={col.key}>{row[col.key]}</td>
               ))}
             </tr>
           ))}
@@ -29,6 +22,4 @@ const Table = ({ columns, data, title }) => {
       </table>
     </div>
   );
-};
-
-export default Table;
+}

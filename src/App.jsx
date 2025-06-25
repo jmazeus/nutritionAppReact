@@ -9,19 +9,12 @@ import NutriologoDashboard from './pages/dashboard/specialist/Specialist';
 import Logout from './features/auth/Logout';
 import './styles/dashboard.css';
 import './styles/clinic.css';
-
-// Verificar que los componentes estén exportados correctamente
-console.log('Componentes importados:', {
-  PacienteDashboard,
-  AdminDashboard,
-  AsistenteDashboard,
-  NutriologoDashboard
-});
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <div className="container">
+      <div className="main-layout">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard/paciente" element={<PacienteDashboard />} />
