@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/login.css';
+import '../../styles/login.css';
 import {jwtDecode} from 'jwt-decode';
 
 const USER_ROLES = {
@@ -37,12 +37,17 @@ const Login = () => {
 
             if (res.ok) {
                 const data = await res.json();
+                // Guardar el token en localStorage
+                localStorage.setItem('token', data.token);
                 const decoded = jwtDecode(data.token);
-                const role = decoded.role || decoded.authorities[0]; // depende del backend
+                console.log('Decoded token:', decoded);
+                const role = decoded.role || decoded.authorities[0];
                 console.log('Login successful:', data);
-                console.log(role);
+                console.log('Token stored:', data.token);
+                console.log('Role:', role);
+                console.log('Role:', role);
                 if (role === USER_ROLES.SUPER_ADMIN || role === USER_ROLES.CLINIC_ADMIN) {
-                    navigate('/dashboard/admin');
+                    navigate('/dashboard/superadmin');
                 } else if (role === USER_ROLES.NUTRIOLOGO) {
                     console.log('Estoy en nutriologo: ', USER_ROLES.NUTRIOLOGO);
                     navigate('/dashboard/nutriologo');

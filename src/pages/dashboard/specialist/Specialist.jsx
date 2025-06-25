@@ -1,10 +1,10 @@
 // src/pages/dashboard/nutriologo.jsx
 import React from 'react';
-import Table from '../../components/Table';
-import Navbar from '../../components/Navbar';
-import '../../styles/dashboard.css';
-import '../../styles/table.css';
-import '../../styles/navbar.css';
+import Table from '../../../components/ui/Table';
+import Navbar from '../../../components/common/Navbar';
+import '../../../styles/dashboard.css';
+import '../../../styles/table.css';
+import '../../../styles/navbar.css';
 
 const DashboardNutriologo = () => {
   // Datos de ejemplo para pacientes
