@@ -1,20 +1,14 @@
+import { fetchWithAuth } from './fetchWithAuth';
+
 const API_URL = 'http://localhost:8080/api/clinics';
 
 export const clinicsApi = {
     getAll: async () => {
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(API_URL, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-
+            const response = await fetchWithAuth(API_URL);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
             return await response.json();
         } catch (error) {
             console.error('Error fetching clinics:', error);
@@ -24,20 +18,13 @@ export const clinicsApi = {
 
     create: async (clinicData) => {
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(API_URL, {
+            const response = await fetchWithAuth(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
                 body: JSON.stringify(clinicData)
             });
-
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
             return await response.json();
         } catch (error) {
             console.error('Error creating clinic:', error);
@@ -47,20 +34,13 @@ export const clinicsApi = {
 
     update: async (id, clinicData) => {
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(`${API_URL}/${id}`, {
+            const response = await fetchWithAuth(`${API_URL}/${id}`, {
                 method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
                 body: JSON.stringify(clinicData)
             });
-
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
             return await response.json();
         } catch (error) {
             console.error('Error updating clinic:', error);
@@ -70,19 +50,12 @@ export const clinicsApi = {
 
     delete: async (id) => {
         try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(`${API_URL}/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
+            const response = await fetchWithAuth(`${API_URL}/${id}`, {
+                method: 'DELETE'
             });
-
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
             return await response.json();
         } catch (error) {
             console.error('Error deleting clinic:', error);

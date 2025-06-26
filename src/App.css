@@ -27,6 +27,8 @@ body, #root, .main-layout {
 .main-layout {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
+
+/* Elimina fondo duplicado, el fondo ya está en body */

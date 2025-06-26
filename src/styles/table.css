@@ -1,22 +1,21 @@
 .data-table {
-  max-width: 1400px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.06);
-  padding: 1.5rem 2rem;
-  margin-top: 1.5rem;
+  margin: 32px 0 0 0;
+  padding: 0;
   width: 100%;
-  max-width: 1400px;           /* ¡Aumenta el ancho máximo! */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
   overflow-x: auto;
-  border: 1px solid #ececec;
-  min-height: 400px;
+  border: none;
+  min-height: 0;
+  background: #fff;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.06);
+  border-radius: 14px;
+  /* Nueva separación visual respecto al contenedor */
+  box-sizing: border-box;
 }
 
 .data-table table {
-  width: 100%;
+  margin: 8px 12px 16px 12px;
+  width: calc(100% - 24px);
   border-collapse: collapse;
   font-size: 1.07rem;
   color: #22223b;
@@ -26,7 +25,7 @@
 
 .data-table th,
 .data-table td {
-  padding: 1.1rem 1.1rem;
+  padding: 0.8rem 1rem;
   text-align: left;
 }
 
@@ -60,27 +59,243 @@
   color: #22223b;
 }
 
-/* Para acciones tipo "Editar", "Eliminar", etc. */
-.table-action {
-  color: #6366f1;
+/* === Tabla con fuente y colores de navbar/login === */
+.data-table, .users-table, .table-header-row {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  color: #18181b;
+  font-size: 1.04rem;
+  letter-spacing: 0.01em;
+}
+
+.data-table, .users-table {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  color: #18181b;
+  background: #fff;
+}
+
+.data-table th, .users-table th {
+  color: rgb(16, 137, 211);
+  font-weight: 600;
+  font-size: 1.12em;
+  background: #e9f0f7;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.data-table td, .users-table td {
+  color: #474a55;
+  font-size: 1.07em;
+}
+
+.data-table tr:hover, .users-table tr:hover {
+  background: #f4f7fb;
+}
+
+/* Botón superior derecho para agregar clínica */
+.table-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.add-clinic-btn {
+  background: rgb(16, 137, 211);
+  color: #fff;
+  padding: 7px 18px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1em;
   font-weight: 500;
   cursor: pointer;
-  text-decoration: none;
-  transition: color 0.15s;
+  transition: background 0.13s;
+  box-shadow: #cff0ff 0px 6px 8px -4px;
+  line-height: 1.2;
 }
-.table-action:hover {
-  color: #4338ca;
-  text-decoration: underline;
+.add-clinic-btn:hover {
+  background: #0e7abf;
 }
 
 @media (max-width: 900px) {
   .data-table {
-    max-width: 98vw;
-    padding: 1rem 0.5rem;
+    padding: 0;
+    max-width: 100%;
   }
   .data-table table th,
   .data-table table td {
     padding: 0.6rem 0.5rem;
     font-size: 0.98rem;
   }
+}
+
+.users-container {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 40px 40px 32px 40px;
+  max-width: 98vw;
+  margin: 16px auto;
+  box-shadow: none;
+}
+
+.users-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.users-header-row h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.users-description {
+  margin: 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.add-user-btn {
+  background: #6c47ff;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.13s;
+}
+
+.add-user-btn:hover {
+  background: #5336c9;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.users-table thead th {
+  text-align: left;
+  font-size: 1.12em;
+  font-weight: 600;
+  color: #18181b;
+  padding-bottom: 14px;
+}
+
+.users-table tbody td {
+  padding: 18px 0;
+  border-top: 1px solid #e5e7eb;
+  font-size: 1.07em;
+  color: #474a55;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #18181b;
+}
+
+.user-title,
+.user-email,
+.user-role {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.edit-link {
+  color: #6c47ff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.13s;
+}
+
+.edit-link:hover {
+  color: #5336c9;
+}
+
+/* Estilos para el modal overlay y contenido del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,90,200,0.13);
+  padding: 32px 32px 24px 32px;
+  min-width: 340px;
+  max-width: 98vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.table-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif !important;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  vertical-align: middle;
+}
+
+.table-header-row h1 {
+  color: rgb(16, 137, 211);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+.data-table h2 {
+  color: rgb(16, 137, 211);
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+.table-header-title {
+  color: rgb(16, 137, 211);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 }

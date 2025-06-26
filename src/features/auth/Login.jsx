@@ -6,7 +6,7 @@ import {jwtDecode} from 'jwt-decode';
 const USER_ROLES = {
     SUPER_ADMIN: 'SUPER_ADMIN',
     PACIENTE: 'PACIENTE',
-    NUTRIOLOGO: 'NUTRIOLOGO',
+    ESPECIALISTA: 'ESPECIALISTA',
     ASISTENTE: 'ASISTENTE',
     CLINIC_ADMIN: 'CLINIC_ADMIN'
 };
@@ -48,8 +48,8 @@ const Login = () => {
                 console.log('Role:', role);
                 if (role === USER_ROLES.SUPER_ADMIN || role === USER_ROLES.CLINIC_ADMIN) {
                     navigate('/dashboard/superadmin');
-                } else if (role === USER_ROLES.NUTRIOLOGO) {
-                    console.log('Estoy en nutriologo: ', USER_ROLES.NUTRIOLOGO);
+                } else if (role === USER_ROLES.ESPECIALISTA) {
+                    console.log('Estoy en nutriologo: ', USER_ROLES.ESPECIALISTA);
                     navigate('/dashboard/nutriologo');
                 } else if (role === USER_ROLES.ASISTENTE) {
                     navigate('/dashboard/assistant');

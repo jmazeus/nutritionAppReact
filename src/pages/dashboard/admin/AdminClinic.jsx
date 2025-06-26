@@ -5,8 +5,11 @@ import '../../../styles/dashboard.css';
 import '../../../styles/table.css';
 import '../../../styles/navbar.css';
 import '../../../styles/clinic.css';
+import useSessionRedirect from '../../../hooks/useSessionRedirect';
 
 const AdminClinic = () => {
+  useSessionRedirect();
+
   return (
     <div className="dashboard-container">
       <Navbar />

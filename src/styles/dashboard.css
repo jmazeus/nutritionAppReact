@@ -6,9 +6,26 @@ body {
 }
 
 .dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #e9f1fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.clinic-container {
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 2.5rem auto 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,90,200,0.07);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard-content {
@@ -20,7 +37,7 @@ body {
   padding: 1rem;
   background-color: white;
   border-radius: 12px;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+  box-shadow: rgba(133, 189, 215, 0.09) 0px 10px 20px -10px;
 }
 
 .section h2 {
@@ -37,4 +54,29 @@ body {
 main {
   flex: 1;
   padding-top: 60px; /* Espacio para el navbar */
+}
+
+.data-table {
+  margin: 32px 0 0 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.06);
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: none;
+  min-height: 0;
+}
+
+.clinic-container h1 {
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .clinic-container {
+    padding: 1.5rem 1vw;
+    max-width: 98vw;
+  }
 }

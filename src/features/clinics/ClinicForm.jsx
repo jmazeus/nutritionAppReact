@@ -31,6 +31,7 @@ const ClinicForm = ({ clinic = null, onClose, onSuccess }) => {
                     navigate('/');
                 }
             } catch (error) {
+                console.log('Error decoding token:', error);                
                 navigate('/login');
             }
         };

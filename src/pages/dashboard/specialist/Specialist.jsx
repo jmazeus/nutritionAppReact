@@ -2,11 +2,14 @@
 import React from 'react';
 import Table from '../../../components/ui/Table';
 import Navbar from '../../../components/common/Navbar';
+import useSessionRedirect from '../../../hooks/useSessionRedirect';
 import '../../../styles/dashboard.css';
 import '../../../styles/table.css';
 import '../../../styles/navbar.css';
 
 const DashboardNutriologo = () => {
+  useSessionRedirect();
+
   // Datos de ejemplo para pacientes
   const pacientes = [
     {
